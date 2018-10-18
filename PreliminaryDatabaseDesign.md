@@ -102,4 +102,4 @@ The data available for each user to interact with, based on their role
 1.4.4.4 number of pick ups
 
 ## 1.5 Entity-Relationship Diagram
-![Lion Express ERD]()
+![Lion Express ERD](https://raw.githubusercontent.com/BenProtusSmith/csmi-486/master/Lion%20Express%20Preliminary%20ERD.png)

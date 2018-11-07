@@ -39,67 +39,40 @@ The data available for each user to interact with, based on their role
 1.3.5.2 Detailed Employee Information
 
 ## 1.4 Database Schema
-#### 1.4.1 Employee -- An hourly member of the Lion Express
+#### LMU Student
+* Phone Number (int)
+* Lion Mail (text)
+* Name: First and Last name (text)
 
-1.4.1.1 Name -- First name, Last name
+#### Employee
+* Employee ID (int)
+* Name: First name, Last name (text)
+* Phone number (int)
+* Email (text)
+* Role: Dispatcher, Driver, Supervisor, Manager (text)
 
-1.4.1.2 Phone number
+#### Van
+* License Plate Number (text)
+* Mileage (int)
+* Gas level (float)
+* Issues (text)
 
-1.4.1.3 Email
+#### Ride Group
+* Ride Group Number (int)
+* Student (text)
+* Rider_1 (text)
+* Rider_2 (text)
+* Rider_3 (text)
+* Rider_4 (text)
+* Rider_5 (text)
+* Rider_6 (text)
+* Destination (text)
+* Pick up (text)
+* Drop off (text)
 
-1.4.1.4 Role -- Dispatcher, Driver, Supervisor, or Manager
-
-1.4.1.5 Employee ID
-
-#### 1.4.2 Student -- Lion Express Van Service User
-
-1.4.2.1 Name -- First name, Last name
-
-1.4.2.2 Phone number
-
-1.4.2.3 Lion Mail
-
-#### 1.4.3 Van -- Vehicles belonging to the Lion Express
-
-1.4.3.1 License Plate Number
-
-1.4.3.2 Mileage
-
-1.4.3.3 Gas level
-
-1.4.3.4 Issues
-
-#### 1.4.4 Ride -- A one-hour ride cycle
-
-1.4.4.1 License Plate Number
-
-1.4.4.2 Employee ID
-
-1.4.4.3 total number of students in van
-
-1.4.4.4 Destination(s)
-
-#### 1.4.5 Ride Group -- Group of students (1-8) requesting ride
-
-1.4.4.1 Names -- First name, Last name
-
-1.4.4.2 Phone number
-
-1.4.4.3 Destination
-
-1.4.4.4 Drop Off Time
-
-1.4.4.5 Pick Up Time
-
-#### 1.4.6 Ride Schedule -- Hourly Lion Express Rides
-
-1.4.4.1 Names -- First name, Last name
-
-1.4.4.2 Phone numbers
-
-1.4.4.3 number of drop offs
-
-1.4.4.4 number of pick ups
+#### Ride Schedule
+* Hour (text)
+* Ride Group Number(s) (int)
 
 ## 1.5 Entity-Relationship Diagram
 ![Lion Express ERD](https://raw.githubusercontent.com/BenProtusSmith/csmi-486/master/Lion%20Express%20Preliminary%20ERD.png)

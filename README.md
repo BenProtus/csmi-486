@@ -1,4 +1,4 @@
-# csmi-486
+# CMSI-486
 Lion Express Database Management System
 
 Database for the Lion Express and all its facets. 

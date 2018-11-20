@@ -93,14 +93,6 @@ CREATE TABLE public.ride_schedule (
 
 
 --
--- Name: rides; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.rides (
-);
-
-
---
 -- Name: students; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -145,14 +137,6 @@ COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, r
 --
 
 COPY public.ride_schedule (hour, ride_group_number) FROM stdin;
-\.
-
-
---
--- Data for Name: rides; Type: TABLE DATA; Schema: public; Owner: -
---
-
-COPY public.rides  FROM stdin;
 \.
 
 

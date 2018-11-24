@@ -122,7 +122,26 @@ CREATE TABLE public.van (
 --
 
 COPY public.employees (employee_id, name, phone_number, email, "position") FROM stdin;
-Bmsith70	(Benjamin,Smith)	206-548-6865	Bsmith70@lion.lmu.edu	Dispatcher
+Bsmith70	(Benjamin,Smith)	206-548-6865	Bsmith70@lion.lmu.edu	Dispatcher
+Ssoto	(Sabrina, Soto)	310-123-4567	Ssoto@lion.lmu.edu	Manager
+Jharris69	(Jackson, Harris)	310-234-5678	jharris69@lion.lmu.edu	Driver
+Kbraekman	(Kea, Braekman)	310-400-4655	kbraekman@lion.lmu.edu Supervisor
+Jmangani	(John, Manganiello)	310-640-1743	jmangani@lion.lmu.edu Driver
+Aweisblat	(Alyssa, Weisblatt)	310-480-5555	aweisblat@lion.lmu.edu Dispatcher
+Adonkers	(Adriana, Donkers)	310-477-3682	adonkers@lion.lmu.edu Dispatcher
+Etran	(Teddy, Tran)	818-666-1234	etran@lion.lmu.edu Supervisor
+Madmasu	(Miriam, Admasu)	310-588-4820	madmasu@lion.lmu.edu Driver
+Tparrish	(Tyra, Parrish)	310-313-7413	tparrish@lion.lmu.edu Driver
+Erasmus	(Evan, Rasmus)	310-777-8008	erasmus@lion.lmu.edu Driver
+Esmillie	(Ellie, Smillie)	818-321-6195	esmillie@lion.lmu.edu Dispatcher
+Jcastlem	(Justin, Castleman)	626-616-4358	jcastlem@lion.lmu.edu Driver
+Omcalpin	(Olivia, McAlpine)	206-259-6019	omcalpin@lion.lmu.edu Dispatcher
+Mallom33	(Mallom, Liggon)	310-678-0010	mallom33@gmail.com Dispatcher
+Mrea7	(Michael, Rea)	659-909-7251	mrea7@lion.lmu.edu Supervisor
+Chirose	(Conrad, Hirose)	491-100-2020	chirose@lion.lmu.edu Dispatcher
+Afalaah	(Aminah, Falaah)	425-333-6366	afalaah@lion.lmu.edu Driver
+Dradcliff	(DeShun, Radcliff)	310-818-5762	dradcliff@lion.lmu.edu Driver
+Jherzog	(Jake, Herzog)	480-923-4321	jherzog@lion.lmu.edu Driver
 \.
 
 
@@ -132,6 +151,9 @@ Bmsith70	(Benjamin,Smith)	206-548-6865	Bsmith70@lion.lmu.edu	Dispatcher
 
 COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, rider_4, rider_5, rider_6, destination, pick_up, drop_off) FROM stdin;
 1	(Nicholas,Chew)	(Sage,Rogriguez)	\N	\N	\N	\N	\N	LAX	5	5
+2	(Benjamin,Smith)	(Sierra,Powell)	\N	\N	\N	\N	\N	Trader Joes	5	6
+3	(David,Richard)	(Hannah,Booth)	(Helen,Schiller)	(Armando,Lytle)	(Clark,Kent)	(Lara,Thomas)	(Andrew, Forney)	Westfield	4	7
+4	(Valerie,Silva)	\N	\N	\N	\N	\N	Waterside	6	8
 \.
 
 
@@ -140,7 +162,13 @@ COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, r
 --
 
 COPY public.ride_schedule (hour, ride_group_number, van_in_use) FROM stdin;
-5	1	2CMK720
+4	3	6YHB746
+5	1	6YHB746
+5	2	6YHB746
+6	2	6YHB746
+6	4	6YHB746
+7	3	6YHB746
+8	4	6YHB746
 \.
 
 
@@ -151,6 +179,7 @@ COPY public.ride_schedule (hour, ride_group_number, van_in_use) FROM stdin;
 COPY public.students (lion_mail, phone_number, name) FROM stdin;
 Nchew3@lion.lmu.edu	510-209-7651	(Nicholas,Chew)
 Bsmith70@lion.lmu.edu	206-548-6865	(Benjamin,Smith)
+Spowel15@lion.lmu.edu	310-483-9696	(Sierra,Powell)
 Drichard@lion.lmu.edu	761-906-3452	(David,Richard)
 Hbooth@lion.lmu.edu	460-823-8843	(Hannah,Booth)
 HSchiller@lion.lmu.edu	925-385-2944	(Helen,Schiller)
@@ -168,11 +197,11 @@ Aforney@lion.lmu.edu	310-472-3800	(Andrew,Forney)
 --
 
 COPY public.van (license_plate, mileage, gas_level, in_use, issues) FROM stdin;
-6TRJ243	35433	0.5	f	None
-6LIK274	73832	0.100000000000000006	f	Oil Leak
-2CMK720	18237	0.949999999999999956	f	None
-5UMH719	105222	0.599999999999999978	f	Brakes are dull
-7FGR947	56728	0.25	f	Left passenger door handle broken
+6PMT661	35433	0.5	f	None
+6ETV480	73832	0.100000000000000006	f	No Aux
+6YHB746	18237	0.949999999999999956	t	None
+7BHB339	105222	0.599999999999999978	f	No Key
+7GNF394	56728	0.25	f	Battery dead
 \.
 
 
@@ -219,4 +248,3 @@ ALTER TABLE ONLY public.van
 --
 -- PostgreSQL database dump complete
 --
-

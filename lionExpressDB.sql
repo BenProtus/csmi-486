@@ -55,9 +55,9 @@ SET default_with_oids = false;
 --
 
 CREATE TABLE public.employees (
-    employeee_id integer NOT NULL,
+    employee_id text NOT NULL,
     name public.full_name NOT NULL,
-    phone_number integer NOT NULL,
+    phone_number text NOT NULL,
     email text NOT NULL,
     "position" text NOT NULL
 );
@@ -88,7 +88,8 @@ CREATE TABLE public.ride_group (
 
 CREATE TABLE public.ride_schedule (
     hour integer NOT NULL,
-    ride_group_number integer NOT NULL
+    ride_group_number integer NOT NULL,
+    van_in_use text
 );
 
 
@@ -98,7 +99,7 @@ CREATE TABLE public.ride_schedule (
 
 CREATE TABLE public.students (
     lion_mail text NOT NULL,
-    phone_number integer NOT NULL,
+    phone_number text NOT NULL,
     name public.full_name NOT NULL
 );
 
@@ -120,7 +121,8 @@ CREATE TABLE public.van (
 -- Data for Name: employees; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.employees (employeee_id, name, phone_number, email, "position") FROM stdin;
+COPY public.employees (employee_id, name, phone_number, email, "position") FROM stdin;
+Bmsith70	(Benjamin,Smith)	206-548-6865	Bsmith70@lion.lmu.edu	Dispatcher
 \.
 
 
@@ -129,6 +131,7 @@ COPY public.employees (employeee_id, name, phone_number, email, "position") FROM
 --
 
 COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, rider_4, rider_5, rider_6, destination, pick_up, drop_off) FROM stdin;
+1	(Nicholas,Chew)	(Sage,Rogriguez)	\N	\N	\N	\N	\N	LAX	5	5
 \.
 
 
@@ -136,7 +139,8 @@ COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, r
 -- Data for Name: ride_schedule; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.ride_schedule (hour, ride_group_number) FROM stdin;
+COPY public.ride_schedule (hour, ride_group_number, van_in_use) FROM stdin;
+5	1	2CMK720
 \.
 
 
@@ -145,6 +149,17 @@ COPY public.ride_schedule (hour, ride_group_number) FROM stdin;
 --
 
 COPY public.students (lion_mail, phone_number, name) FROM stdin;
+Nchew3@lion.lmu.edu	510-209-7651	(Nicholas,Chew)
+Bsmith70@lion.lmu.edu	206-548-6865	(Benjamin,Smith)
+Drichard@lion.lmu.edu	761-906-3452	(David,Richard)
+Hbooth@lion.lmu.edu	460-823-8843	(Hannah,Booth)
+HSchiller@lion.lmu.edu	925-385-2944	(Helen,Schiller)
+Alytle@lion.lmu.edu	293-193-9876	(Armando,Lytle)
+Vsilva7@lion.lmu.edu	408-928-3704	(Valerie,Silva)
+Romar2@lion.lmu.edu	392-498-6923	(Ryan,Omar)
+Ckent32@lion.lmu.edu	382-328-2411	(Clark,Kent)
+Lthomas9@lion.lmu.edu	421-849-2423	(Lara,Thomas)
+Aforney@lion.lmu.edu	310-472-3800	(Andrew,Forney)
 \.
 
 
@@ -153,6 +168,11 @@ COPY public.students (lion_mail, phone_number, name) FROM stdin;
 --
 
 COPY public.van (license_plate, mileage, gas_level, in_use, issues) FROM stdin;
+6TRJ243	35433	0.5	f	None
+6LIK274	73832	0.100000000000000006	f	Oil Leak
+2CMK720	18237	0.949999999999999956	f	None
+5UMH719	105222	0.599999999999999978	f	Brakes are dull
+7FGR947	56728	0.25	f	Left passenger door handle broken
 \.
 
 
@@ -161,7 +181,7 @@ COPY public.van (license_plate, mileage, gas_level, in_use, issues) FROM stdin;
 --
 
 ALTER TABLE ONLY public.employees
-    ADD CONSTRAINT employees_pkey PRIMARY KEY (employeee_id);
+    ADD CONSTRAINT employees_pkey PRIMARY KEY (employee_id);
 
 
 --

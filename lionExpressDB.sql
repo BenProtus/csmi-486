@@ -90,7 +90,8 @@ CREATE TABLE public.ride_schedule (
     ride_index text,
     hour integer,
     ride_group_number integer,
-    van_in_use text
+    van_in_use text,
+    driver name
 );
 
 
@@ -155,14 +156,14 @@ COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, r
 -- Data for Name: ride_schedule; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.ride_schedule (ride_index, hour, ride_group_number, van_in_use) FROM stdin;
-B	5	1	6YHB746
-C	5	2	6YHB746
-D	6	2	6YHB746
-E	6	4	6YHB746
-F	7	3	6YHB746
-G	8	4	6YHB746
-A	4	3	6YHB746
+COPY public.ride_schedule (ride_index, hour, ride_group_number, van_in_use, driver) FROM stdin;
+B	5	1	6YHB746	(Jackson,Harris)
+C	5	2	6YHB746	(Jackson,Harris)
+A	4	3	6YHB746	(Jackson,Harris)
+D	6	2	6YHB746	(Miriam,Admasu)
+E	6	4	6YHB746	(Miriam,Admasu)
+G	8	4	6YHB746	(Tyra,Parrish)
+F	7	3	6YHB746	(Miriam,Admasu)
 \.
 
 

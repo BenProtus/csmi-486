@@ -69,7 +69,6 @@ CREATE TABLE public.employees (
 
 CREATE TABLE public.ride_group (
     ride_group_number integer NOT NULL,
-    student text NOT NULL,
     rider_1 public.full_name,
     rider_2 public.full_name,
     rider_3 public.full_name,
@@ -78,7 +77,8 @@ CREATE TABLE public.ride_group (
     rider_6 public.full_name,
     destination text NOT NULL,
     pick_up integer NOT NULL,
-    drop_off integer NOT NULL
+    drop_off integer NOT NULL,
+    student public.full_name
 );
 
 
@@ -127,7 +127,7 @@ COPY public.employees (employee_id, name, phone_number, email, "position") FROM 
 Bmsith70	(Benjamin,Smith)	206-548-6865	Bsmith70@lion.lmu.edu	Dispatcher
 Ssoto	(Sabrina,Soto)	310-123-4567	Ssoto@lion.lmu.edu	Manager
 JHarris69	(Jackson,Harris)	310-234-5678	JHarris69@lion.lmu.edu	Driver
-Kbraekman	(Kea,Braekman)	310-400-4655	Kbraekman@lion.lmu.edu	Supervisor	
+Kbraekman	(Kea,Braekman)	310-400-4655	Kbraekman@lion.lmu.edu	Supervisor
 Jmangani	(John,Manganiello)	310-640-1743	jmangani@lion.lmu.edu	Driver
 Aweisblat	(Alyssa,Weisblatt)	310-480-5555	aweisblat@lion.lmu.edu	Dispatcher
 Adonkers	(Adrianna,Donkers)	310-477-3682	adonkers@lion.lmu.edu	Dispatcher
@@ -144,11 +144,11 @@ Jcastlem	(Justin,Castleman)	626-616-4358	jcastle@lion.lmu.edu	Driver
 -- Data for Name: ride_group; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.ride_group (ride_group_number, student, rider_1, rider_2, rider_3, rider_4, rider_5, rider_6, destination, pick_up, drop_off) FROM stdin;
-1	(Nicholas,Chew)	(Sage,Rogriguez)	\N	\N	\N	\N	\N	LAX	5	5
-2	(Benjamin,Smith)	(Sierra,Powell)	\N	\N	\N	\N	\N	Trader Joes	5	6
-3	(David,Richard)	(Hannah,Booth)	(Helen,Schiller)	(Armando,Lytle)	(Clark,Kent)	(Lara,Thomas)	(Andrew,Forney)	Westfield	4	7
-4	(Valerie,Silva)	\N	\N	\N	\N	\N	\N	Waterside	6	8
+COPY public.ride_group (ride_group_number, rider_1, rider_2, rider_3, rider_4, rider_5, rider_6, destination, pick_up, drop_off, student) FROM stdin;
+1	(Sage,Rogriguez)	\N	\N	\N	\N	\N	LAX	5	5	(Nicholas,Chew)
+2	(Sierra,Powell)	\N	\N	\N	\N	\N	Trader Joes	5	6	(Benjamin,Smith)
+3	(Hannah,Booth)	(Helen,Schiller)	(Armando,Lytle)	(Clark,Kent)	(Lara,Thomas)	(Andrew,Forney)	Westfield	4	7	(David,Richard)
+4	\N	\N	\N	\N	\N	\N	Waterside	6	8	(Valerie,Silva)
 \.
 
 

@@ -79,20 +79,37 @@ Final tables/columns with descriptions for each.
 ## Example Database Queries
 #### What are the different positions at the Lion Express?
 
-`SELECT DISTINCT "position" FROM employees;`
+`SELECT DISTINCT "position" 
+FROM employees;`
 
 #### Who is driving from 7pm to 7:59pm?
 
-`SELECT driver FROM ride_schedule WHERE hour =7;`
+`SELECT driver 
+FROM ride_schedule 
+WHERE hour =7;`
 
 #### Which vans are available to use at 5pm with no issues?
 
-`SELECT license_plate FROM van WHERE in_use = FALSE AND issues = 'None';`
+`SELECT license_plate 
+FROM van 
+WHERE in_use = FALSE 
+AND issues = 'None';`
 
 #### Which van(s) have no issues and the most gas such that we can use it for most of the day?
 
-`SELECT license_plate FROM van WHERE gas_level = (SELECT MAX(gas_level) FROM van WHERE issues = 'None');`
+`SELECT license_plate 
+FROM van 
+WHERE gas_level = 
+  (SELECT MAX(gas_level) 
+  FROM van 
+  WHERE issues = 'None');`
 
 #### Need send email to student(s) that 8pm rides are cancelled. What are their emails?
 
-`SELECT lion_mail FROM students WHERE name = (SELECT student FROM ride_group  WHERE pick_up = 8 OR drop_off = 8);`
+`SELECT lion_mail 
+FROM students 
+WHERE name = 
+(SELECT student 
+  FROM ride_group  
+  WHERE pick_up = 8 
+  OR drop_off = 8);`
